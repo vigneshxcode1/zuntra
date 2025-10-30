@@ -28,7 +28,7 @@ Styling	Bootstrap 5
 Hosting	Render (Backend) (Frontend)
 
 setup guide
-git clone - 
+git clone - https://github.com/vigneshxcode1/zuntra.git
 cd folder
 
 cd server
