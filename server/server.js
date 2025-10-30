@@ -14,7 +14,8 @@ console.log(process.env)
 app.use(cookieParser());
 app.use(
   cors({
-     origin: "https://zuntra-backend.onrender.com",
+     //origin: "http://localhost:5173",
+      origin: "https://zuntra-backend.onrender.com",
     credentials: true,  
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],             
