@@ -7,7 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import ChatPage from "./Chat";
 import { Link } from "react-router-dom";
 
-const BASE_URL = "http://localhost:5000";
+// const BASE_URL = "http://localhost:5000";
+const LIVE_URL="https://zuntra-backend.onrender.com"
 
 function TaskPage() {
   const [tasks, setTasks] = useState([]);
@@ -27,7 +28,7 @@ function TaskPage() {
   const fetchTasks = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`${BASE_URL}/api/v1/gettask`, {
+      const res = await axios.get(`${LIVE_URL}/api/v1/gettask`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -50,7 +51,7 @@ function TaskPage() {
 
     try {
       const res = await axios.post(
-        `${BASE_URL}/api/v1/createtask`,
+        `${LIVE_URL}/api/v1/createtask`,
         { title },
         {
           headers: {
@@ -70,7 +71,7 @@ function TaskPage() {
   const updateTask = async (id, currentStatus) => {
     try {
       const res = await axios.put(
-        `${BASE_URL}/api/v1/updatetask/${id}`,
+        `${LIVE_URL}/api/v1/updatetask/${id}`,
         { isCompleted: !currentStatus },
         {
           headers: {
@@ -94,7 +95,7 @@ function TaskPage() {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
 
     try {
-      await axios.delete(`${BASE_URL}/api/v1/deletetask/${id}`, {
+      await axios.delete(`${LIVE_URL}/api/v1/deletetask/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
