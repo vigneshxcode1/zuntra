@@ -5,8 +5,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 
-// const BASE_URL = "http://localhost:5000";
-const LIVE_URL="https://zuntra-backend.onrender.com"
+const BASE_URL = "http://localhost:5000";
+
 function ChatPage() {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
@@ -21,7 +21,7 @@ function ChatPage() {
   const fetchMessages = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`${LIVE_URL}/api/v1/getmessage`, {
+      const res = await axios.get(`${BASE_URL}/api/v1/getmessage`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,7 +33,7 @@ function ChatPage() {
       setLoading(false);
     }
   };
-
+  
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ function ChatPage() {
 
     try {
       const res = await axios.post(
-        `${LIVE_URL}/api/v1/newMessage`,
+        `${BASE_URL}/api/v1/newMessage`,
         { message },
         {
           headers: {

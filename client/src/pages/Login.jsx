@@ -7,8 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 
-// const BASE_URL = "http://localhost:5000";
-const LIVE_URL="https://zuntra-backend.onrender.com"
+const BASE_URL = "http://localhost:5000";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ function Login() {
   e.preventDefault();
 
   try {
-    const response = await axios.post(`${LIVE_URL}/api/v1/login`, { email, password });
+    const response = await axios.post(`${BASE_URL}/api/v1/login`, { email, password });
 
     if (response.data.token) {
       localStorage.setItem("token", response.data.token);

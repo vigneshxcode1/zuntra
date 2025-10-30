@@ -10,12 +10,11 @@ import UserRouter from './routers/UserRouter.js';
 
 const app = express();
 dotenv.config()
-console.log(process.env)
+
 app.use(cookieParser());
 app.use(
   cors({
-     //origin: "http://localhost:5173",
-      origin: "https://zuntra-backend.onrender.com",
+     origin: "http://localhost:5173",
     credentials: true,  
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],             

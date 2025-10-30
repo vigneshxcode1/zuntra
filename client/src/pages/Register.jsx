@@ -5,8 +5,8 @@ import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 
 
-// const BASE_URL = "http://localhost:5000";
-const LIVE_URL="https://zuntra-backend.onrender.com"
+const BASE_URL = "http://localhost:5000";
+
 function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,7 +16,7 @@ function Signup() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${LIVE_URL}/api/v1/register`, { name, email, password })
+    axios.post(`${BASE_URL}/api/v1/register`, { name, email, password })
       .then(response => {
         console.log(response.data);
         navigate("/taskpage");
